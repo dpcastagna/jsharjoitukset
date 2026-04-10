@@ -1,3 +1,4 @@
+//Lisätään optioneita for loopilla select-elementtiin
 'use strict';
 const students = [
   {
@@ -13,3 +14,12 @@ const students = [
     id: '5423679',
   },
 ];
+
+const div = document.querySelector('#target');
+
+for (let i = 0; i < students.length; i++) {
+  const listanOsa = document.createElement('option');
+  listanOsa.textContent = `${students[i].name}`;
+  listanOsa.value = `${students[i].id}`;
+  div.appendChild(listanOsa);
+}

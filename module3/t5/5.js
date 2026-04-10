@@ -93,3 +93,29 @@ const picArray = [
 ];
 
 // add your code here
+const div = document.querySelector('#pictures');
+
+for (let i = 0; i < picArray.length; i++) {
+  const artikkeli = document.createElement('article');
+  artikkeli.class = 'card'
+
+  const otsikko = document.createElement('h2');
+  otsikko.textContent = picArray[i].title;
+  artikkeli.appendChild(otsikko);
+
+  const figure = document.createElement('figure');
+  const kuva = document.createElement('img');
+  kuva.src = picArray[i].image.medium;
+  kuva.alt = picArray[i].title;
+  figure.appendChild(kuva);
+  const caption = document.createElement('figcaption');
+  caption.textContent = picArray[i].caption;
+  figure.appendChild(caption);
+  artikkeli.appendChild(figure);
+
+  const teksti = document.createElement('p');
+  teksti.textContent = picArray[i].description;
+  artikkeli.appendChild(teksti);
+
+  div.appendChild(artikkeli);
+}
