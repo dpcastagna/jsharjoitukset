@@ -94,17 +94,21 @@ const picArray = [
 ];
 
 // add your code here
-function isonna(numero) {
-  //evt.preventDefault();
-  const dialog = document.querySelector('dialog')
+const dialog = document.querySelector('dialog');
+const isoKuva = document.querySelector('dialog img');
+let kuvaNumero = 0;
 
-  const isoKuva = document.querySelector('dialog img')
-  isoKuva.src = picArray[numero].image.large;
+function isonna() {
+  isoKuva.src = picArray[kuvaNumero].image.large;
+  isoKuva.alt = picArray[kuvaNumero].title;
   dialog.showModal()
+
+  const sulku = document.querySelector('dialog span');
+  sulku.addEventListener('click', sulje);
 }
 
 function sulje(){
-  const sulku = document.querySelector('dialog span')
+  dialog.close();
 }
 
 const div = document.querySelector('#pictures');
@@ -132,7 +136,9 @@ for (let i = 0; i < picArray.length; i++) {
   artikkeli.appendChild(teksti);
 
   div.appendChild(artikkeli);
-  kuva.addEventListener('click', isonna(i));
-
+  kuva.addEventListener('mouseover', function() {
+    kuvaNumero = i;
+  });
+  kuva.addEventListener('click', isonna);
 
 }
