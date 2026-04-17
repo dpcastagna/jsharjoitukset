@@ -1,4 +1,4 @@
-//haetaan chuck norris vitsi ja tulostetaan se konsoliin
+//haetaan chuck norris vitsejä hakusanalla
 'use strict';
 
 const jokeForm = document.querySelector('#joke-form')
